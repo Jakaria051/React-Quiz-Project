@@ -1,9 +1,15 @@
-
+import "../styles/App.css";
+import Layout from "./Layout";
+import Signup from "./pages/Signup";
+// import Home from "./pages/Home";
 function App() {
   return (
-    <div className="App">
-      <h1>sdfsf</h1>
-    </div>
+    <Layout>
+      {
+        /* <Home /> */
+        <Signup />
+      }
+    </Layout>
   );
 }
 
