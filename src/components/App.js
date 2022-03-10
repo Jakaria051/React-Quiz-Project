@@ -7,6 +7,7 @@ import Login from "./pages/Login";
 import Quiz from "./pages/Quiz";
 import Result from "./pages/Result";
 import Signup from "./pages/Signup";
+import PrivateOutlet from "./PrivateOutlet";
 
 function App() {
   return (
@@ -16,8 +17,22 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/signup" element={<Signup />} />
           <Route path="/login" element={<Login />} />
-          <Route path="/quiz" element={<Quiz />} />
-          <Route path="/result" element={<Result />} />
+
+          {/* nested route */}
+          <Route path="/*" element={<PrivateOutlet />}>
+            <Route path="quiz" element={<Quiz />} />
+            <Route path="result" element={<Result />} />
+          </Route>
+
+          {/* <Route
+            path="/result"
+            element={
+              <PrivateRoute>
+                {" "}
+                <Result />{" "}
+              </PrivateRoute>
+            }
+          /> */}
         </Routes>
       </Layout>
     </AuthProvider>
